@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
     
     end	
 
-
+    def show
+        @event = Event.find(params[:id])
+	end	
 
 	def new
 		@event = Event.new
@@ -24,9 +26,7 @@ class ApplicationController < ActionController::Base
 	    end	
 	end	
 
-	def show
-        @event = Event.find(params[:id])
-	end	
+	
 
 	def edit
     @event = Event.find(params[:id])
