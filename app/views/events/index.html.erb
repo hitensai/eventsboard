@@ -5,16 +5,11 @@
 
 <%= @events.each do |event| %>
 
-<div>
-<h4><%= link_to event.title, event %></h4
+    <div>
+        <h4><%= link_to event.title, event %></h4
 
-<p> <%= event.description%></p>
-<p><%= event.start_date %></p>
-<p><%= event.end_date %></p>
-
-
-
-</div>
-
-
+        <p> <%= event.description%></p>
+        <p><%= event.start_date %></p>
+        <p><%= event.end_date %></p>
+    </div>
 <% end %>
