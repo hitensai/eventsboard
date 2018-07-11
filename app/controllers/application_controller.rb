@@ -1,20 +1,34 @@
 class ApplicationController < ActionController::Base
+	
+    def index
+    @events = Event.all
+    
+    end	
+
+
+
 	def new
 		@event = Event.new
 	end
 
 	def create
 
-	@event = Event.new(event_params)
+	    @event = Event.new(event_params)
 
-	if @event.save
+	    if @event.save
 		flash[:notice] = "Event created"
 		redirect_to @event
-	else
+	    else
 		flash.now[:alert] = "Event not created"
 		render "new"
+	    end	
 	end	
+
+	def show
+        @event = Event.find(params[:id])
 	end	
+
+
 		
 
 
