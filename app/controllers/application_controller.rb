@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+	before_action :set_event, only: [:show, :edit, :update, :destroy]
 	
     def index
     @events = Event.all
@@ -6,7 +7,7 @@ class ApplicationController < ActionController::Base
     end	
 
     def show
-        @event = Event.find(params[:id])
+   
 	end	
 
 	def new
@@ -29,13 +30,13 @@ class ApplicationController < ActionController::Base
 	
 
 	def edit
-    @event = Event.find(params[:id])
+   
 	
 
 	end	
 
 	def update
-    @event = Event.find(params[:id])
+   
 
     if @event.update(event_params)
     	flash[:notice] = "Event updated"
@@ -48,7 +49,7 @@ class ApplicationController < ActionController::Base
 
 	def destroy
 
-	@event = Event.find(params[:id])
+	
 	@event.destroy
 	flash[:notice] = "Event deleted"
 	redirect_to events_path
@@ -61,8 +62,15 @@ class ApplicationController < ActionController::Base
 
 
   private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
+  	
  
   def event_params
    params.require(:event).permit(:title, :description, :start_date, :end_date, :venue, :location)
   end
+
+
 end
