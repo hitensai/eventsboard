@@ -1,11 +1,12 @@
 <h1>List of all events</h1>
+<p><%= link_to "Add event", new_event_path %></p>
 
 
 
 <%= @events.each do |event| %>
 
 <div>
-<h4><%= event.title %></h4
+<h4><%= link_to event.title, event %></h4
 
 <p> <%= event.description%></p>
 <p><%= event.start_date %></p>
