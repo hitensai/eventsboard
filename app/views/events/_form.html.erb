@@ -1,4 +1,6 @@
-<% if event.errors.any? %>
+<div class="row">
+ <div class="col-sm-8 col-sm-offset-2">
+  <% if event.errors.any? %>
    <div id="Error Explanation">
    <h2><%= pluralize(event.errors.count, "error") %> Prohibited this Event from being created</h2>
    <ul>
@@ -7,7 +9,7 @@
       <% end %>
    </ul>
     </div>
-<% end %>
+  <% end %>
 
 <%= simple_form_for(event) do |f| %>
    <%= f.input :title %>
@@ -25,4 +27,7 @@
 
 
 <% end %>
+<strong><%= link_to "Back", events_path %></strong>
 
+</div>  
+</div>
