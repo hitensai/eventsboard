@@ -59,12 +59,13 @@ class ApplicationController < ActionController::Base
 
   def set_event
     @event = Event.find(params[:id])
-  end
+
+   
+ end
   	
  
   def event_params
    params.require(:event).permit(:title, :description, :start_date, :end_date, :venue, :location)
   end
-
-
+   
 end
