@@ -9,7 +9,7 @@
         <h4><%= link_to event.title, event %></h4
 
         <p> <%= event.description%></p>
-        <p><%= event.start_date %></p>
-        <p><%= event.end_date %></p>
+        <p>"The event start date is:" <strong><%= time_format(event.start_date) %></strong></p>
+        <p>"The event End date is: " <strong><%= time_format(event.end_date) %></strong></p>
     </div>
 <% end %>

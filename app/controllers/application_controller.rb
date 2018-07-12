@@ -48,18 +48,12 @@ class ApplicationController < ActionController::Base
 	end	
 
 	def destroy
-
 	
 	@event.destroy
 	flash[:notice] = "Event deleted"
 	redirect_to events_path
 
 	end	
-
-
-		
-
-
 
   private
 
