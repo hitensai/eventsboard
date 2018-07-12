@@ -1,71 +1,19 @@
 class ApplicationController < ActionController::Base
-	before_action :set_event, only: [:show, :edit, :update, :destroy]
 	
-    def index
-    @events = Event.all
-    
-    end	
+   before_action :configure_permitted_parameters, if: :devise_controller?
 
-    def show
-   
-	end	
 
-	def new
-		@event = Event.new
-	end
 
-	def create
 
-	    @event = Event.new(event_params)
+   private
+   def configure_permitted_parameters
+   	devise_parameter_sanitizer.permit(:sign_up) do |user|
+   		user.permit(:email, :password, :password_confirmation, :first_name, :last_name, :username, :organization_name)
+   	end
+   		
+   	devise_parameter_sanitizer.permit(:account_update) do |user|
+   		user.permit(:email, :password, :password_confirmation, :current_password, :first_name, :last_name, :username, :organization_name)
+   	end	
+   end
 
-	    if @event.save
-		flash[:notice] = "Event created"
-		redirect_to @event
-	    else
-		flash.now[:alert] = "Event not created"
-		render "new"
-	    end	
-	end	
-
-	
-
-	def edit
-   
-	
-
-	end	
-
-	def update
-   
-
-    if @event.update(event_params)
-    	flash[:notice] = "Event updated"
-    	redirect_to @event
-    else 
-    	flash.now[:alert] = "Event not updated"
-    	render "edit"
-    end	
-	end	
-
-	def destroy
-	
-	@event.destroy
-	flash[:notice] = "Event deleted"
-	redirect_to events_path
-
-	end	
-
-  private
-
-  def set_event
-    @event = Event.find(params[:id])
-
-   
- end
-  	
- 
-  def event_params
-   params.require(:event).permit(:title, :description, :start_date, :end_date, :venue, :location)
-  end
-   
 end

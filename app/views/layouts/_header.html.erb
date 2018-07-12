@@ -1,4 +1,4 @@
-  <div class="container">
+  
 
       <!-- Static navbar -->
       <nav class="navbar navbar-default navbar-inverse">
@@ -25,7 +25,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <%  if user_signed_in?%>
-                 <li class="<%= "active" if current_page?("/users/edit")%>"><%= link_to current_user.email, edit_user_registration_path %></li>
+                 <li class="<%= "active" if current_page?("/users/edit")%>"><%= link_to current_user.username, edit_user_registration_path %></li>
                   <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
               <% end %>    
             </ul>  
@@ -37,5 +37,3 @@
 
       <!-- Main component for a primary marketing message or call to action -->
      
-
-    </div> <!-- /container -->
