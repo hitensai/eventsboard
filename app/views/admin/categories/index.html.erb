@@ -10,3 +10,26 @@
 	</ul> 
 	<% end %>
 </header>
+
+<table class="table table-striped table-responsive">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Created</th>
+			<th>Events</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @categories.reverse.each do |category| %>
+		<tr>
+		<td><%= category.name %></td>
+		<td> <%= time_format(category.created_at) %></td>
+		<td><%= "Events" %></td>
+		<td>
+			<%= link_to "views", '#' %> | <%= link_to "Edit", edit_admin_category_path(category) %> |  <%= link_to "delete", admin_category_path(category), method: :delete, data: {confirm: "Are you sure?"} %>
+		</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

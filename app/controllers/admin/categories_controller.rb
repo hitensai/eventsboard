@@ -1,6 +1,7 @@
 class Admin::CategoriesController < Admin::ApplicationController
+	before_action :set_category, only: [:edit, :update, :destroy]
 	def index
-		
+		@categories = Category.all
 	
 
 	end
@@ -31,11 +32,22 @@ class Admin::CategoriesController < Admin::ApplicationController
 	end
 		
 	def update
+		 if @category.update(category_params)
+    	   flash[:notice] = "Event updated"
+    	    redirect_to admin_categories_path
+         else 
+    	   flash.now[:alert] = "Event not updated"
+    	   render "edit"
+    end	
 	
 
 	end
 
 	def destroy
+
+		@category.destroy
+	flash[:notice] = "Event deleted"
+	redirect_to admin_categories_path
 	
 
 	end	
@@ -44,6 +56,10 @@ class Admin::CategoriesController < Admin::ApplicationController
 	def category_params
 
 	params.require(:category).permit(:name, :summary)
+	end	
+
+	def set_category
+     @category = Category.find(params[:id])
 	end	
 
 end
