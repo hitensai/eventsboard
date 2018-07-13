@@ -14,10 +14,10 @@
 		<ul class="admin-menu">
 			<li class="text-uppercase text-center header">Main Navigation</li>
 			<li>
-				<%= link_to "#" do %>
+				<%= link_to admin_users_path do %>
 				  <%= fa_icon "users" %>
 				  <span>Users</span>
-				  <span class="label label-primary pull-right">users</span>
+				  <span class="label label-primary pull-right"><%= @users.count %></span>
 				<% end %>
 			</li>
 			<li>
@@ -28,7 +28,7 @@
 				<% end %>
 			</li>
 			<li>
-				<%= link_to "#" do %>
+				<%= link_to '#' do %>
 				  <%= fa_icon "users" %>
 				  <span>Attendees</span>
 				  <span class="label label-danger pull-right">Attendees</span>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   namespace :admin do
+    resources :users, only: [:index]
     root 'application#index'
   end
   devise_for :users
