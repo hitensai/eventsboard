@@ -1,10 +1,7 @@
 <header>
 	<h1><%= @user.organization_name %> 's Events organized</h1>
-
-
-	<ul>
-		
-		<li> <%= link_to "Strat Event", new_event_path, class: "new" %></li>
+	<ul class="actions">
+		<li> <%= link_to "Start Event", new_event_path, class: "new" %></li>
 	</ul>
 </header>
 

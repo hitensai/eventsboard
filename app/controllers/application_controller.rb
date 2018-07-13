@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
 
    include Pundit
+   after_action :verify_authorized, unless: :devise_controller?
 
    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -20,8 +21,8 @@ class ApplicationController < ActionController::Base
 
    def user_not_authorized
 
-      flash[:notice] =  "You are not authorized to do that action"
       redirect_to(request.referrer || root_path)  
+      {confirm: "Are you sure?"}
 
 
    end   
