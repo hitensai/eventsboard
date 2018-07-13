@@ -18,12 +18,12 @@ class EventPolicy < ApplicationPolicy
     user.present?
   end  
 
-  def new
+  def new?
      create?
    end 
 
   def update?
-     user.present? && user == event.organizer
+     (user.present? && user == event.organizer) || user.try(:admin?)
   end  
 
 
@@ -32,8 +32,8 @@ class EventPolicy < ApplicationPolicy
    end 
 
 
-  def destroy
-  user.present? && user == event.organizer
+  def destroy?
+     (user.present? && user == event.organizer) || user.try(:admin?)
   end 
 
 
