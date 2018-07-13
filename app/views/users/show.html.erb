@@ -8,7 +8,7 @@
 	</ul>
 </header>
 
-<%  if @user.events.any? %>
+<%  if @user.organizeed_events.any? %>
 	<table class="table table-stripped">
 		<thead>
 			<tr>
@@ -20,12 +20,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @user.organized_events.reverse.each do |event|%>
+			<% @user.organizeed_events.reverse.each do |event|%>
 			<tr>
 				<td><%=link_to event.title, event_path(event) %></td>
 					<td><%= time_format(event.start_date)%></td>
 					<td><%= time_format(event.end_date) %></td>
-					<td><%= event_status(event) %></td>
+					<td></td>
 					<td>
 						<%=link_to "Edit", edit_event_path(event) %>
 					</td>

@@ -13,26 +13,9 @@ class EventPolicy < ApplicationPolicy
        scope.where(:id => record.id).exists?
 
    end
-  def create?
-       user.present?
-  end
-
-
-  def new?
-    create?
-  end
-  def edit?
-   update?
-  end
-
-  def update?
-     user.present? && user == event.organizer
   
-  end	
+  
 
-  def destroy?
-     user.present? && user == event.organizer
-  end
 
    
 end
