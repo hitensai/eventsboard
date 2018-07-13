@@ -35,6 +35,16 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'jquery-rails'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'devise', '~> 4.2'
+gem 'pundit', '~> 1.1'
+gem 'friendly_id', '~> 5.2', '>= 5.2.4'
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+
+gem 'mini_magick', '~> 4.8'
+gem 'searchkick', '~> 3.1'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'bootstrap-will_paginate', '~> 1.0'
+
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

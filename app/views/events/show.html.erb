@@ -29,7 +29,7 @@
 
 <div class="col-sm-3">
 	<div class="sidebar">
-		<h4 class="organizer"> Organized by:</h4>
+		<h4 class="organizer"><%= link_to @event.organizer.organization_name, user_path(@event.organizer) %></h4>
 		<p>
 			<span class="event-venue"> <%= @event.venue%> <strong><%= @event.location%></strong></span>
 			
