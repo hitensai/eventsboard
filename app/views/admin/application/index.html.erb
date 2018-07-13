@@ -21,10 +21,11 @@
 				<% end %>
 			</li>
 			<li>
-				<%= link_to "#" do %>
+				<%= link_to admin_categories_path do %>
 				  <%= fa_icon "th" %>
 				  <span>catogories</span>
-				  <span class="label label-info pull-right">catogories</span>
+				  <span class="label label-info pull-right">
+				  	<%=@categories.count %> </span>
 				<% end %>
 			</li>
 			<li>

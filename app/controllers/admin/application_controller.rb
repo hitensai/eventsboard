@@ -6,6 +6,7 @@ class Admin::ApplicationController < ApplicationController
   def index
     @users = User.all
   	@events = Event.all
+    @categories = Category.all
   end
 
 
