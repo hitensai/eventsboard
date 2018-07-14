@@ -1,0 +1,31 @@
+<% provide(:title, @category.name) %>
+
+<header>
+    <h1 class="text-upcase"><%= @category.name %></h1>
+    <ul class="actions">
+    	<% admins_only do %>
+    	<li><%= link_to "Edit event", edit_admin_category_path(@category), class: "edit" %></li>
+    	<li><%= link_to "delete this Event", admin_category_path(@category), method: :delete, data: {confirm: "Are you sure?"},class: "delete"  %></li>
+    	<% end %>
+    </ul>
+</header>
+
+<div class="row">
+	<div class="col-sm-3 pull-right">
+		<div class="sidebar">
+			<h3 class="discover"> Discover</h3>
+			<ul class="nav nav-pilla nav stacked">
+				<li class="<%= "active" if current_page?("/events")%>"><%= link_to "All Events",events_path %></li>
+				<% @categories.each do |category| %>
+				<li class="<%= "active" if current_page?("/categories/#{category.id}")%>">
+					<%= link_to category.name.upcase, category_path(category) %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="col-sm-9">
+<h3>Discover and register to attend Events to Socialize</h3>
+</div>
+</div>

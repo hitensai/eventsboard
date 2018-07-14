@@ -10,6 +10,11 @@
 			<h3 class="discover"> Discover</h3>
 			<ul class="nav nav-pilla nav stacked">
 				<li class="<%= "active" if current_page?("/events")%>"><%= link_to "All Events",events_path %></li>
+                <% @categories.each do |category| %>
+                <li class="<%= "active" if current_page?("/categories/#{category.id}")%>">
+                    <%= link_to category.name.upcase, category_path(category) %>
+                </li>
+                <% end %>
 			</ul>
 		</div>
 	</div>
@@ -26,7 +31,7 @@
     	  <div class="events">
     		 <div class="row">
     			 <div class="col-sm-3">
-    				   <%= image_tag "https://picsum.photos/200/100/?random" %>
+    				   <%= image_tag @event.image.url, class: "event-image" %>
     			 </div>
     			   <div class="col-sm-9">
     				         <h3 class="event-title"><%= event.title%></h3>

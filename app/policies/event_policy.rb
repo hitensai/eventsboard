@@ -19,7 +19,7 @@ class EventPolicy < ApplicationPolicy
   end  
 
   def new?
-     create?
+    create?
    end 
 
   def update?

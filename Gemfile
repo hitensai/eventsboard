@@ -38,7 +38,6 @@ gem 'devise', '~> 4.2'
 gem 'pundit', '~> 1.1'
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
-
 gem 'mini_magick', '~> 4.8'
 gem 'searchkick', '~> 3.1'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
