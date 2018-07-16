@@ -12,6 +12,8 @@ before_action :authenticate_user!, except: [:index, :show]
 
     def show
     	authorize @event, :show?
+    	@comment = Comment.new
+    	@comment.event_id = @event.id
    
 	end	
 

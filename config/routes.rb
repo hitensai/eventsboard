@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :categories, only: [:show]
 	root "events#index"
-	resources :events
+	resources :events do
+    resources :comments, only: [:create]
+  end  
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
