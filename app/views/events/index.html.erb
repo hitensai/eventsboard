@@ -9,7 +9,7 @@
 		<div class="sidebar">
 			<h3 class="discover"> Discover</h3>
 			<ul class="nav nav-pilla nav stacked">
-				<li class="<%= "active" if current_page?("/events")%>"><%= link_to "All Events",events_path %></li>
+				<li class="<%= "active" if current_page?("/events")%>"><%= link_to "ALL EVENTS",events_path %></li>
                 <% @categories.each do |category| %>
                 <li class="<%= "active" if current_page?("/categories/#{category.id}")%>">
                     <%= link_to category.name.upcase, category_path(category) %>
@@ -18,12 +18,7 @@
 			</ul>
 		</div>
 	</div>
-</div>
 <h3>Discover and register to attend Events to Socialize</h3>
-
-
-
-
 <% @events.each do |event| %>
 
     <div class="col-sm-9 pull-left">
@@ -49,3 +44,4 @@
 
     </div>
 <% end %>
+</div>

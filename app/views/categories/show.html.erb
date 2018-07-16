@@ -24,8 +24,29 @@
 			</ul>
 		</div>
 	</div>
-</div>
-<div class="col-sm-9">
-<h3>Discover and register to attend Events to Socialize</h3>
-</div>
+<% @category_events.each do |event| %>
+
+    <div class="col-sm-9 pull-left">
+    	<%= link_to event_path(event) do%>
+    	  <div class="events">
+    		 <div class="row">
+    			 <div class="col-sm-3">
+    				   <%= image_tag event.image.url, :size => "260x180", class: "image-event" %>
+    			 </div>
+    			   <div class="col-sm-9">
+    				         <h3 class="event-title"><%= event.title%></h3>
+    				         <p>
+    				         	<span class="event-venue"><%= event.venue %></span><strong> <%= event.location %></strong>
+    				         </p>
+    				         <p class="lead-time">
+    				                 <span class="event-start"><%= time_format(event.start_date)%></span>
+    				               <span class="pull-right">Organized by: <%= event.organizer %> </span>
+    				           </p>
+    			       </div>
+    		      </div>
+    	   </div>
+    	<% end %> 
+
+    </div>
+<% end %>
 </div>
