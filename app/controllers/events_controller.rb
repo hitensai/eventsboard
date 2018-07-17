@@ -4,7 +4,7 @@ before_action :authenticate_user!, except: [:index, :show]
 #before_action :authorize_owner!, only: [:edit, :update, :destroy]
 	
     def index
-    @events = Event.order(created_at: :desc)
+    @events = Event.order(created_at: :desc).paginate(page: params[:page], per_page: 4)
     @categories = Category.all	
     authorize @events, :index?
     
