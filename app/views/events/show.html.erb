@@ -2,6 +2,7 @@
 <header>
     <h1 id="show-title"><%= @event.title %></h1>
     <ul class="actions">
+    	<li><%= link_to "Register", event_attendances_path(@event), method: :post, class: "new" %></li>
     	<li><%= link_to "Edit event", edit_event_path(@event), class: "edit" if policy(@event).edit? %></li>
     	<li><%= link_to "delete this Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"},class: "delete" if policy(@event).destroy? %></li>
     </ul>
