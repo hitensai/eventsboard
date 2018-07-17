@@ -9,7 +9,7 @@ Rails.application.routes.draw do
  
   resources :users, only: [:show]
   resources :categories, only: [:show]
-	root "events#index"
+	root "home#index"
 	resources :events do
     resources :comments, only: [:create]
     resources :attendances, only: [:create]

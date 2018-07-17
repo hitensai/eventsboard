@@ -1,3 +1,4 @@
+<div class="jumbotron" style="background-color: #f1f1f1">
 <header>
 <h1>List of all events</h1>
 <ul class = "actions">
@@ -26,7 +27,7 @@
     	  <div class="events">
     		 <div class="row">
     			 <div class="col-sm-3">
-    				   <%= image_tag event.image.url, :size => "260x180", class: "image-event" %>
+    				   <%= image_tag event.image.url, :size => "240x180", class: "image-event" %>
     			 </div>
     			   <div class="col-sm-9">
     				         <h3 class="event-title"><%= event.title%></h3>
@@ -48,4 +49,5 @@
 </div>
 <div class="text-center">
     <h3><%= will_paginate @events %></h3>
+</div>
 </div>
